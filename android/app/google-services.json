@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "869589303754",
+    "project_id": "bloodapp-1cfc2",
+    "storage_bucket": "bloodapp-1cfc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869589303754:android:98d38ecf00f7b3d14f8f33",
+        "android_client_info": {
+          "package_name": "com.bloodtrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869589303754-s6rg542mjvn4rvec4vjfg5vm3394q3j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgGP02BpMwHZP8AZmtkOz0iFiA4W7sCoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869589303754-s6rg542mjvn4rvec4vjfg5vm3394q3j3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
