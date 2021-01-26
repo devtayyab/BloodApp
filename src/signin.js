@@ -6,23 +6,20 @@ function Signin({navigation}) {
   const[ email, setemail] = useState()
   const[password,setpassword] = useState()
 const Login=()=>{
- const intial={
-   email:email,
-   password:password
- }
+ 
   auth()
-  .signInWithEmailAndPassword(intial.email, intial.password)
+  .signInWithEmailAndPassword(email, password)
   .then(() => {
     console.log('User account created & signed in!');
     navigation.navigate('home')
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {
-      console.log('That email address is already in use!');
+      alert('That email address is already in use!');
     }
 
     if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
+      alert('That email address is invalid!');
     }
 
     console.error(error);

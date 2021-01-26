@@ -2,7 +2,7 @@ import React ,{useState}from 'react';
 import auth from '@react-native-firebase/auth';
 import {ScrollView} from 'react-native'
 import {  Header,  Form, Item,
-     Input, Label,Icon,Text, Button,} from 'native-base';
+     Input, Label,Icon,Text, Button, Card,} from 'native-base';
 import database from '@react-native-firebase/database';
   function Signup({navigation}) {
  
@@ -12,21 +12,13 @@ import database from '@react-native-firebase/database';
   const[ password, setpassword] = useState("")
   const[ location, setlocation] = useState("")
     const Savedata=()=>{
-      var intial = {
-      name : name,
-        email:email,
-        age :age,
-        location:location,
-        password: password,
-       
-        
-    }
+     
       console.log("tayyab")
 
 
 
   auth()
-  .createUserWithEmailAndPassword(intial.email, intial.password)
+  .createUserWithEmailAndPassword(email, password)
   .then(() => {
     console.log('User account created & signed in!');
     const newReference = database()
@@ -37,7 +29,11 @@ console.log('Auto generated key: ', newReference.key);
 
 newReference
   .set({
-    intial
+    name : name,
+    email:email,
+    age :age,
+    location:location,
+    password: password,
   })
   .then(() => console.log('Data updated.'));
   navigation.navigate('login')
@@ -59,7 +55,7 @@ newReference
   setemail("")
   setlocation("")
   setpassword("")
-  }
+   }
 
   
     return (
@@ -67,6 +63,7 @@ newReference
         
           <Form>
             <ScrollView>
+              <Card style={styles.signup}>
               <Header><Text style={{color : "white"}}>Signup</Text></Header>
             <Item stackedLabel>
               <Label>Username</Label>
@@ -101,11 +98,20 @@ newReference
               <Button onPress={()=>Savedata()} typeof="submit"><Text>Sign Up</Text></Button>
             </Item>
             <Text>if you have account</Text>
-            <Button title="log in" onPress={()=>navigation.navigate('login')}><Text>log in</Text></Button>
+            
+          <Button title="log in" onPress={()=>navigation.navigate('login')}><Text>log in</Text></Button>
+          </Card>
             </ScrollView>
           </Form>
        
      
     );
   }
+
+  const styles = StyleSheet.create({
+    signup:{
+      backgroundColor: "lightgrey",
+      fontFamily:'serif'
+    }
+  })
 export default Signup
