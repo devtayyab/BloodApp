@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { View,Text, Header, Button,Icon, Thumbnail } from 'native-base';
 const imge= require('../../tayyab.jpg')
@@ -21,9 +20,9 @@ return (
   
     <Drawer.Navigator>
            {/* <Button onPress={()=>navigation.toggleDrawer()} transparent><Thumbnail source={imge}></Thumbnail></Button> */}
-         <Drawer.Screen name="Home" component={Home} />
-         <Drawer.Screen name="Donors" component={Donors} />
+         {/* <Drawer.Screen name="Home" component={Home} /> */}
          <Drawer.Screen name="Request" component={Request} />
+         <Drawer.Screen name="Donors" component={Donors} />
          <Drawer.Screen name="Requestform" component={Requestform} />
          
          

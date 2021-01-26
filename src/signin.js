@@ -1,12 +1,12 @@
 import React, { useState  } from 'react';
 import auth from '@react-native-firebase/auth';
-import { Container, Header, Content, Form, Item,Text, Input, Label, Button } from 'native-base';
+import { Container, Header, Content, Form, Item,Text, Input, Label, Button,Pressable } from 'native-base';
 function Signin({navigation}) {
  
   const[ email, setemail] = useState()
   const[password,setpassword] = useState()
 const Login=()=>{
- 
+  {email || password ? alert("fill value") : 
   auth()
   .signInWithEmailAndPassword(email, password)
   .then(() => {
@@ -24,25 +24,28 @@ const Login=()=>{
 
     console.error(error);
   });
-
+  }
 }
 
     return (
       <Container>
-        <Header />
+        {/* <Header /> */}
         <Content>
           <Form>
-            <Item fixedLabel>
-              <Label>Username</Label>
+            <Item floatingLabel>
+              <Label>Email</Label>
               <Input placeholder="" onChangeText={(text)=>setemail(text)} required/>
             </Item>
-            <Item fixedLabel last>
+            <Item floatingLabel>
               <Label>Password</Label>
-              <Input placeholder="" onChangeText={(text)=>setpassword(text)} required/>
+              <Input placeholder="" caretHidden onChangeText={(text)=>setpassword(text)} required/>
             </Item>
-            <Item>
-              <Button onPress={()=>Login()}><Text>LOg in</Text></Button>
-            </Item>
+               <Button onPress={()=>Login()}><Text>LOg in</Text></Button>
+               <Text style={styles.label,{color:'red'}}>If you don't have account press signup</Text>
+            
+               <Pressable title="log in" onPress={()=>navigation.navigate('signup')}><Text style={{fontSize:'bold'}}>Signup</Text></Pressable>
+            
+           
           </Form>
         </Content>
       </Container>
