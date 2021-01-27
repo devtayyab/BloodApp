@@ -1,6 +1,6 @@
 import React ,{useState}from 'react';
 import auth from '@react-native-firebase/auth';
-import {ScrollView,StyleSheet} from 'react-native'
+import {ScrollView,StyleSheet,Image} from 'react-native'
 import {  Header,  Form, Item,
      Input, Label,Icon,Text, Button, Card,} from 'native-base';
 import database from '@react-native-firebase/database';
@@ -15,7 +15,7 @@ import database from '@react-native-firebase/database';
      
       console.log("tayyab")
 
-      {email || password ? alert("Make sure all values are filled") : 
+      {email || password ? 
 
   auth()
   .createUserWithEmailAndPassword(email, password)
@@ -36,7 +36,7 @@ newReference
     password: password,
   })
   .then(() => console.log('Data updated.'));
-  navigation.navigate('login')
+  navigation.navigate('Login')
 
   })
   .catch(error => {
@@ -49,13 +49,14 @@ newReference
     }
 
     console.error(error);
-  });
-  setname("")
+    setname("")
   setage("")
   setemail("")
   setlocation("")
   setpassword("")
-   }
+  })
+  
+ : alert("Please fill all feilds")    }
   }
   
     return (
@@ -63,7 +64,8 @@ newReference
         
           <Form>
             <ScrollView>
-              <Card style={styles.signup}>
+              <Card style={styles.display}>
+              <Image style={styles.img} source={require('./img/logo.jpg')}></Image>
               {/* <Header><Text style={{color : "white"}}>Signup</Text></Header> */}
             <Item stackedLabel>
               <Label style={styles.label}>Username</Label>
@@ -95,7 +97,7 @@ newReference
             </Item> 
            
             <Item style={{justifyContent: 'space-around'}}>
-            <Button onPress={()=>Savedata()} typeof="submit"><Text>Sign Up</Text></Button>
+            <Button style={{backgroundColor:'red'}} onPress={()=>Savedata()} typeof="submit"><Text>Sign Up</Text></Button>
          
             </Item>
            
@@ -118,6 +120,22 @@ newReference
     label:{
       color:'black',
       fontFamily:'serif'
-    }
+    },
+    display:{
+      marginTop:6,
+        justifyContent:'center',
+         color:'green',
+         backgroundColor:'#fff0f5' ,
+         borderColor: 'red',
+         borderEndWidth:6,
+         borderTopWidth:0,
+         borderRadius:10
+      },
+      img:{
+        width:300,
+        position:'relative',
+        alignSelf:'center',
+        height:70
+    }   
   })
 export default Signup

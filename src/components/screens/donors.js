@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from "react";
 import database from '@react-native-firebase/database';
-import { Container, Header, Content, Card, CardItem, Text, Body,Button, View } from "native-base";
+import { Container, Header, Content, Card, CardItem, Text, Body,Button,Thumbnail, View, Right } from "native-base";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 function Donors({navigation}) {
 
@@ -28,7 +28,10 @@ function Donors({navigation}) {
      
     return (
       <Container>
-        
+         <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
+       <Thumbnail source={require('../../img/menu.png')}></Thumbnail>
+       </TouchableOpacity>
+         
         <Content padder>
         <Text>tayyab</Text>
             {values.map((v,i)=>
@@ -63,8 +66,8 @@ function Donors({navigation}) {
           </ScrollView>
           )}
         </Content>
-        
-      </Container>
+       </Container>
+       
     );
   }
 export default Donors
