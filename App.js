@@ -9,17 +9,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 
+
 const Stack = createStackNavigator();
 
 function App() {
+
   return (
   
-
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name="Login" component={Signin} />
-        <Stack.Screen name="Signup" component={Signup} /> */}
-        <Stack.Screen name="home" component={Drawerexample} />
+        <Stack.Screen name="Login" component={Signin} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Home" component={Drawerexample} />
+        {/* <Stack.Screen name="home" component={Pickerr} /> */}
 
       </Stack.Navigator>
     </NavigationContainer>

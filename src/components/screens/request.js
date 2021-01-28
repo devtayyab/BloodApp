@@ -34,14 +34,13 @@ function Request({navigation}) {
        </TouchableOpacity>
          
         <Content padder>
-           
+           <Text style={{fontSize:40,fontFamily:'serif'}}>Blood Request</Text>
             {values.map((v,i)=>
             <ScrollView key={i}>
           <Card key={i} >
-           <CardItem header bordered>
+           <CardItem header bordered style={{justifyContent:'space-between'}}>
               <Text>{`Patient Name:     ${v.name}`}</Text>
-              
-              {/* <Text style={{alignSelf:'baseline'}}>{v.blood}</Text> */}
+              <Text>{`${v.location}`}</Text>
             </CardItem>
             <CardItem bordered>
               <Body>
@@ -49,14 +48,18 @@ function Request({navigation}) {
                 <Text>
                   {`Blood group:   ${v.blood}`}
                   {"\n"}
+                  {`Reason:   ${v.reason}`}
+                  {"\n"}
                  {v.message}
                 </Text>
                 </View>
               </Body>
             </CardItem>
-            <CardItem footer bordered>
+            <CardItem footer bordered style={{justifyContent:"space-between"}}>
 
-              <Text>{`Location:   ${v.location}`} {`${"\n"} Contact:   ${v.number}`}</Text>
+              <Text style={{position:'relative'}}>{`Contact:${v.number } `}{"\n"}{"\n"}</Text>
+              
+              <Text>{`${v.date}`}</Text>
             </CardItem>
            
           </Card>
@@ -64,7 +67,7 @@ function Request({navigation}) {
           )}
         </Content>
        
-        <TouchableOpacity onPress={()=>navigation.navigate('Requestform')} >
+        <TouchableOpacity style={{alignItems:'center'}}  onPress={()=>navigation.navigate('Requestform')} >
        <Image   source={require('../../img/Add.png')} style={{width:40,height:40}}></Image>
        <Text>Add your Request</Text>
        </TouchableOpacity>

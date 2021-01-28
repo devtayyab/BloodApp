@@ -30,15 +30,17 @@ function Donors({navigation}) {
       <Container>
          <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
        <Thumbnail source={require('../../img/menu.png')}></Thumbnail>
+       <Text style={{fontSize:40,fontFamily:'serif',position:'relative'}}>Donors</Text>
        </TouchableOpacity>
          
         <Content padder>
-        <Text>tayyab</Text>
+       
             {values.map((v,i)=>
+            
             <ScrollView key={i}>
-              
+            
           <Card key={i} >
-            <TouchableOpacity>
+           
            <CardItem header bordered>
               <Text>{` Name:     ${v.name}`}</Text>
               
@@ -48,21 +50,23 @@ function Donors({navigation}) {
               <Body>
                 <View>
                 <Text>
-                  {/* {`Blood group:   ${v.blood}`}
+                  {`Blood group:   ${v.blood}`}
                   {"\n"}
-                 {v.message} */}
-                 tayyab
+                 {v.email}
+                 
                 </Text>
 
                 </View>
               </Body>
             </CardItem>
-            <CardItem footer bordered>
+            <CardItem footer bordered style={{justifyContent:'space-between'}}>
 
-              {/* <Text>{`Location:   ${v.location}`} {`${"\n"} Contact:   ${v.number}`}</Text> */}
+              <Text>{`Location:   ${v.location}`}</Text>
+              
+             
             </CardItem>
-            </TouchableOpacity>
           </Card>
+         
           </ScrollView>
           )}
         </Content>

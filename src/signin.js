@@ -12,7 +12,7 @@ const Login=()=>{
   .signInWithEmailAndPassword(email, password)
   .then(() => {
     console.log('User account created & signed in!');
-    navigation.navigate('home')
+    navigation.navigate('Home')
   })
   .catch(error => {
     if (error.code === 'auth/email-already-in-use') {

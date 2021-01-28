@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { View,Text, Header, Button,Icon, TouchableOpacity, } from 'native-base';
+import { createDrawerNavigator,DrawerView } from '@react-navigation/drawer';
+import { View,Text, Header, Button,Icon, TouchableOpacity, Container, } from 'native-base';
 import {Image} from 'react-native'
 const imge= require('../../tayyab.jpg')
 import Donors from './screens/donors'
@@ -18,18 +18,17 @@ function Home({navigation}){
 const Drawer = createDrawerNavigator();
 const Drawerexample =({navigation})=> {
 return (
-  
-    <Drawer.Navigator>
-        
-           {/* <Button onPress={()=>navigation.toggleDrawer()} transparent><Thumbnail source={imge}></Thumbnail></Button> */}
-         {/* <Drawer.Screen name="Home" component={Home} /> */}
+    <Container>
+    
+          
+       <Drawer.Navigator>
+      
          <Drawer.Screen name="Request" component={Request} />
          <Drawer.Screen name="Donors" component={Donors} />
          <Drawer.Screen name="Requestform" component={Requestform} />
-         
-         
-      </Drawer.Navigator>
-   
+         </Drawer.Navigator>
+        
+      </Container>
    );
 }
 export default Drawerexample

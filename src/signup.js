@@ -1,6 +1,6 @@
 import React ,{useState}from 'react';
 import auth from '@react-native-firebase/auth';
-import {ScrollView,StyleSheet,Image} from 'react-native'
+import {ScrollView,StyleSheet,Image,Picker} from 'react-native'
 import {  Header,  Form, Item,
      Input, Label,Icon,Text, Button, Card,} from 'native-base';
 import database from '@react-native-firebase/database';
@@ -8,14 +8,15 @@ import database from '@react-native-firebase/database';
  
   const[ name, setname] = useState()
   const[ email, setemail] = useState()
-  const[ age, setage] = useState("")
-  const[ password, setpassword] = useState("")
-  const[ location, setlocation] = useState("")
+  const[ age, setage] = useState()
+  const[ password, setpassword] = useState()
+  const[ location, setlocation] = useState()
+  const [selectedValue, setSelectedValue] = useState("A+");
     const Savedata=()=>{
      
       console.log("tayyab")
 
-      {email || password ? 
+      {email && password && name && age &&location ? 
 
   auth()
   .createUserWithEmailAndPassword(email, password)
@@ -34,6 +35,7 @@ newReference
     age :age,
     location:location,
     password: password,
+    blood: selectedValue
   })
   .then(() => console.log('Data updated.'));
   navigation.navigate('Login')
@@ -59,6 +61,7 @@ newReference
  : alert("Please fill all feilds")    }
   }
   
+  console.log(selectedValue)
     return (
       
         
@@ -88,12 +91,26 @@ newReference
               <Label style={styles.label}>confirm Password</Label>
               <Input placeholder=""  required />
             </Item>
-          {/* <PickerInput></PickerInput> */}
-              
-            
             <Item stackedLabel>
               <Label style={styles.label}>Location</Label>
               <Input placeholder="" value={location} onChangeText={(text)=>setlocation(text)}/>
+            </Item> 
+            <Item stackedLabel>
+              <Label style={styles.label}>Blood Group</Label>
+              <Picker
+        selectedValue={selectedValue}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="A+" value="A+" />
+        <Picker.Item label="A-" value="A-" />
+        <Picker.Item label="AB+" value="AB+" />
+        <Picker.Item label="AB-" value="AB-" />
+        <Picker.Item label="B+" value="B+" />
+        <Picker.Item label="B-" value="B-" />
+        <Picker.Item label="O+" value="O+" />
+        <Picker.Item label="O-" value="O-" />
+      </Picker>
             </Item> 
            
             <Item style={{justifyContent: 'space-around'}}>
