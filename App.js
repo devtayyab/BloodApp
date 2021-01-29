@@ -7,7 +7,7 @@ import Drawerexample from './src/components/home'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
+import Mapp from './src/map'
 
 
 const Stack = createStackNavigator();
@@ -18,9 +18,10 @@ function App() {
   
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={Signin} />
+        <Stack.Screen name="Login" component={Mapp} />
+        {/* <Stack.Screen name="Login" component={Signin} />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Home" component={Drawerexample} />
+        <Stack.Screen name="Home" component={Drawerexample} /> */}
         {/* <Stack.Screen name="home" component={Pickerr} /> */}
 
       </Stack.Navigator>

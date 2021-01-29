@@ -6,7 +6,11 @@ buildscript {
         minSdkVersion = 16
         compileSdkVersion = 29
         targetSdkVersion = 29
+         supportLibVersion = "2.0.0"
+         playServicesVersion = "17.0.0" // or find latest version
+         androidMapsUtilsVersion = "2.2.0"
     }
+
     repositories {
         google()
         jcenter()
@@ -17,6 +21,15 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+    // ext {
+    //     buildToolsVersion = "xxx"
+    //     minSdkVersion = xxx
+    //     compileSdkVersion = xxx
+    //     targetSdkVersion = xxx
+    //     supportLibVersion = "xxx"
+    //     playServicesVersion = "17.0.0" // or find latest version
+    //     androidMapsUtilsVersion = "2.2.0"
+    // }
 }
 
 allprojects {
@@ -35,4 +48,13 @@ allprojects {
         jcenter()
         maven { url 'https://www.jitpack.io' }
     }
+//     ext {
+//     compileSdkVersion   = xxx
+//     targetSdkVersion    = xxx
+//     buildToolsVersion   = "xxx"
+//     minSdkVersion       = xxx
+//     supportLibVersion   = "xxx"
+//     playServicesVersion = "17.0.0" // or find latest version
+//     androidMapsUtilsVersion = "xxx"
+// }
 }
