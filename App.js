@@ -18,12 +18,11 @@ function App() {
   
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={Mapp} />
-        {/* <Stack.Screen name="Login" component={Signin} />
+        {/* <Stack.Screen name="Login" component={Mapp} /> */}
+        <Stack.Screen name="Login" component={Signin} />
         <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Home" component={Drawerexample} /> */}
-        {/* <Stack.Screen name="home" component={Pickerr} /> */}
-
+        <Stack.Screen name="Home" component={Drawerexample} /> 
+       
       </Stack.Navigator>
     </NavigationContainer>
   );
