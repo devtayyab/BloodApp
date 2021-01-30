@@ -17,24 +17,27 @@ function Drawerexample() {
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;
 
-        if (route.name === 'Home') {
+        if (route.name === 'Request') {
           iconName = focused
             ? 'ios-information-circle'
             : 'ios-information-circle-outline';
-        } else if (route.name === 'Settings') {
+        } else if (route.name === 'Donors') {
           iconName = focused ? 'ios-list-box' : 'ios-list';
         }
+        else if (route.name === 'Requestform') {
+            iconName = focused ? 'ios-list-box' : 'ios-list';
+          }
 
         // You can return any component that you like here!
         return <Ionicons name={iconName} size={size} color={color} />;
       },
     })}
     tabBarOptions={{
-      activeTintColor: 'tomato',
+      activeTintColor: 'darkblue',
       inactiveTintColor: 'gray',
     }}
   >
-        <Tab.Screen name={"<Text>Request</Text>"} component={Request} />
+        <Tab.Screen name="Request" component={Request} />
         <Tab.Screen name="Donors" component={Donors} />
         <Tab.Screen name="Requestform" component={Requestform} />
       </Tab.Navigator>
