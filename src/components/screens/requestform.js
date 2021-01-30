@@ -44,9 +44,9 @@ navigation.navigate('Request')
       <Container>
           <ScrollView>
         <Header style={{justifyContent:'space-between'}} transparent>
-        <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
+        {/* <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
        <Thumbnail source={require('../../img/menu.png')}></Thumbnail>
-       </TouchableOpacity>
+       </TouchableOpacity> */}
          
           <Text></Text></Header>
           <ImageBackground source={require('../../img/logo.jpg')} style={{justifyContent:'center'}}>

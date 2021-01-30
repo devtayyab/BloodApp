@@ -28,10 +28,10 @@ function Donors({navigation}) {
      
     return (
       <Container>
-         <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
+         {/* <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
        <Thumbnail source={require('../../img/menu.png')}></Thumbnail>
        <Text style={{fontSize:40,fontFamily:'serif',position:'relative'}}>Donors</Text>
-       </TouchableOpacity>
+       </TouchableOpacity> */}
          
         <Content padder>
        

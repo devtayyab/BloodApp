@@ -29,9 +29,9 @@ function Request({navigation}) {
      
     return (
       <Container>
-       <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
+       {/* <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
        <Thumbnail source={require('../../img/menu.png')}></Thumbnail>
-       </TouchableOpacity>
+       </TouchableOpacity> */}
          
         <Content padder>
            <Text style={{fontSize:40,fontFamily:'serif'}}>Blood Request</Text>
