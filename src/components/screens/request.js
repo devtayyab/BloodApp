@@ -29,10 +29,11 @@ function Request({navigation}) {
      
     return (
       <Container>
-       {/* <TouchableOpacity onPress={(()=>{navigation.toggleDrawer()})}>
-       <Thumbnail source={require('../../img/menu.png')}></Thumbnail>
-       </TouchableOpacity> */}
-         
+      
+      <TouchableOpacity style={{alignItems:'center'}}  onPress={()=>navigation.navigate('Requestform')} >
+       <Image   source={require('../../img/Add.png')} style={{width:40,height:40}}></Image>
+       <Text>Add your Request</Text>
+       </TouchableOpacity>
         <Content padder>
            <Text style={{fontSize:40,fontFamily:'serif'}}>Blood Request</Text>
             {values.map((v,i)=>
@@ -67,10 +68,6 @@ function Request({navigation}) {
           )}
         </Content>
        
-        <TouchableOpacity style={{alignItems:'center'}}  onPress={()=>navigation.navigate('Requestform')} >
-       <Image   source={require('../../img/Add.png')} style={{width:40,height:40}}></Image>
-       <Text>Add your Request</Text>
-       </TouchableOpacity>
       
       </Container>
     );

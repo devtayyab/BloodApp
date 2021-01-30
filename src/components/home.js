@@ -1,37 +1,45 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import { createDrawerNavigator,DrawerView } from '@react-navigation/drawer';
-import { View,Text, Header, Button,Icon, TouchableOpacity, Container, } from 'native-base';
-import {Image} from 'react-native'
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const imge= require('../../tayyab.jpg')
 import Donors from './screens/donors'
 import Request from './screens/request'
 import Requestform from './screens/requestform'
-import { createStackNavigator } from '@react-navigation/stack';
 
-function Home({navigation}){
+const Tab = createBottomTabNavigator();
 
-    return(
-        <View>
-            <Text>Home Screen</Text>
-        </View>
-    )
+function Drawerexample() {
+  return (
+   
+    <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'Home') {
+          iconName = focused
+            ? 'ios-information-circle'
+            : 'ios-information-circle-outline';
+        } else if (route.name === 'Settings') {
+          iconName = focused ? 'ios-list-box' : 'ios-list';
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+    })}
+    tabBarOptions={{
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    }}
+  >
+        <Tab.Screen name={"<Text>Request</Text>"} component={Request} />
+        <Tab.Screen name="Donors" component={Donors} />
+        <Tab.Screen name="Requestform" component={Requestform} />
+      </Tab.Navigator>
+   
+  );
 }
-const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
-const Drawerexample =({navigation})=> {
-return (
-    <Container>
-    
-          
-    <Stack.Navigator>
-      
-         <Stack.Screen name="Request" component={Request} />
-         <Stack.Screen name="Donors" component={Donors} />
-         <Stack.Screen name="Requestform" component={Requestform} />
-        </Stack.Navigator>
-        
-      </Container>
-   );
-}
+
 export default Drawerexample
